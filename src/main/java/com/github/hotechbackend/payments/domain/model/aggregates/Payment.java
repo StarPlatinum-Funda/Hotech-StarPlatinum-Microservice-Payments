@@ -60,4 +60,15 @@ public class Payment extends AbstractAggregateRoot<Payment> {
     public Payment() { }
 
     public Long getUserId() { return userId.userId(); }
+
+    public Payment updateInformation(Long userId, float amount, float currency,
+                                     String paymentMethod, String status, Date payment_date) {
+        this.userId = new UserId(userId);
+        this.amount = amount;
+        this.currency = currency;
+        this.paymentMethod = new PaymentMethod(paymentMethod);
+        this.status = new Status(status);
+        this.payment_date = payment_date;
+        return this;
+    }
 }
