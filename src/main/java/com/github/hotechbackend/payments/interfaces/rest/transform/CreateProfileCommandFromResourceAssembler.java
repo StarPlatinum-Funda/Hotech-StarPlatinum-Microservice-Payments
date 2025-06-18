@@ -5,6 +5,7 @@ import com.github.hotechbackend.payments.interfaces.rest.resources.CreatePayment
 
 public class CreateProfileCommandFromResourceAssembler {
     public static CreatePaymentCommand toCommandFromResource(CreatePaymentResource resource) {
-        return new CreatePaymentCommand(resource.userId(), resource.paymentMethod(), resource.status());
+        return new CreatePaymentCommand(resource.id(), resource.userId(), resource.amount(), resource.currency(),
+                resource.paymentMethod(), resource.status(), resource.payment_date());
     }
 }
